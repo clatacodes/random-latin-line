@@ -54,6 +54,7 @@ body
       font-family: 'Garamond', serif;
       color: #1e2a44;
       margin-left: 0.4rem;
+      margin-bottom: 0.4rem;
       transition: 0.2s;
     }
 
@@ -64,7 +65,7 @@ body
 
     button
     {
-      margin-top: 1.5rem;
+      margin-top: 0.5rem;
       background: #394b78;
       border: none;
       color: #f8f9fc;
