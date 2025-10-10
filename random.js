@@ -7,7 +7,6 @@ function cleanLine(line)
   return line.replace(/[\s,]*\d+\s*$/g, '').trim();
 }
 
-// Fetch text file and extract verses
 async function getLinesFromFile(fileName)
   {
   try
