@@ -3,6 +3,7 @@ const lineDisplay = document.getElementById('latin-line');
 
 
 function cleanLine(line)
+{
   return line.replace(/[\s,]*\d+\s*$/g, '').trim();
 }
 
