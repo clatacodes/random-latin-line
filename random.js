@@ -1,22 +1,31 @@
 const newLineBtn = document.getElementById('new-line');
 const lineDisplay = document.getElementById('latin-line');
 
+const workCache = {};
 
 function cleanLine(line)
-{
+  {
   return line.replace(/[\s,]*\d+\s*$/g, '').trim();
 }
 
 async function getLinesFromFile(fileName)
   {
+  if (workCache[fileName]) return workCache[fileName];
+
   try
   {
     const response = await fetch(fileName);
     const text = await response.text();
     const lines = text.trim().split(/\r?\n/);
     const numLines = parseInt(lines[0]);
-    return lines.slice(1, 1 + numLines).map(cleanLine).filter(line => line.length > 0);
-  } 
+    const cleanLines = lines
+      .slice(1, 1 + numLines)
+      .map(cleanLine)
+      .filter(line => line.length > 0);
+    
+    workCache[fileName] = cleanLines;
+    return cleanLines;
+  }
   catch (err)
   {
     console.error(`Error loading ${fileName}:`, err);
@@ -41,7 +50,7 @@ async function getRandomLineFromChecked()
     {
     const lines = await getLinesFromFile(file);
     allLines = allLines.concat(lines);
-    }
+  }
 
   if (allLines.length === 0)
   {
