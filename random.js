@@ -1,36 +1,56 @@
-const lineDisplay = document.getElementById('latin-line');
-const authorSelect = document.getElementById('author-select');
 const newLineBtn = document.getElementById('new-line');
+const lineDisplay = document.getElementById('latin-line');
 
-function getRandomLine(author)
+
+function cleanLine(line)
+  return line.replace(/[\s,]*\d+\s*$/g, '').trim();
+}
+
+// Fetch text file and extract verses
+async function getLinesFromFile(fileName)
   {
-  let lines = [];
+  try
+  {
+    const response = await fetch(fileName);
+    const text = await response.text();
+    const lines = text.trim().split(/\r?\n/);
+    const numLines = parseInt(lines[0]);
+    return lines.slice(1, 1 + numLines).map(cleanLine).filter(line => line.length > 0);
+  } 
+  catch (err)
+  {
+    console.error(`Error loading ${fileName}:`, err);
+    return [];
+  }
+}
 
-  switch (author)
-    {
-    case 'virgil':
-      lines = virgilLines;
-      break;
-    case 'ovid':
-      lines = ovidLines;
-      break;
-    case 'horace':
-      lines = horaceLines;
-      break;
-    case 'catullus':
-      lines = catullusLines;
-      break;
+async function getRandomLineFromChecked()
+  {
+  const checked = Array.from(document.querySelectorAll('input[name="work"]:checked'))
+    .map(input => input.value);
+
+  if (checked.length === 0)
+  {
+    lineDisplay.textContent = "Selige saltem unum opus Latinum.";
+    return;
   }
 
-  const randomIndex = Math.floor(Math.random() * lines.length);
-  return lines[randomIndex];
-}
+  let allLines = [];
 
-function updateLine()
+  for (const file of checked)
+    {
+    const lines = await getLinesFromFile(file);
+    allLines = allLines.concat(lines);
+    }
+
+  if (allLines.length === 0)
   {
-  const author = authorSelect.value;
-  const line = getRandomLine(author);
-  lineDisplay.textContent = line;
+    lineDisplay.textContent = "Nulla versus inventa sunt.";
+    return;
+  }
+
+  const randomLine = allLines[Math.floor(Math.random() * allLines.length)];
+  lineDisplay.textContent = randomLine;
 }
 
-newLineBtn.addEventListener('click', updateLine);
+newLineBtn.addEventListener('click', getRandomLineFromChecked);
