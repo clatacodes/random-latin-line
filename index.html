@@ -5,111 +5,21 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Versus Latini</title>
   <link rel="stylesheet" href="style.css">
-
-  <style>
-    body
-    {
-      background: #f6f8fb;
-      font-family: 'Garamond', 'Times New Roman', serif;
-      color: #1e2a44;
-      text-align: center;
-      padding: 4rem 1rem;
-    }
-
-    h1
-    {
-      font-size: 2.5rem;
-      letter-spacing: 1px;
-      color: #243154;
-      border-bottom: 2px solid #aab8d6;
-      display: inline-block;
-      padding-bottom: 0.4rem;
-      margin-bottom: 2rem;
-    }
-
-    #latin-line
-    {
-      font-size: 1.6rem;
-      margin: 2rem auto;
-      max-width: 700px;
-      line-height: 1.6;
-      background: #ffffff;
-      border: 2px solid #b8c4e0;
-      border-radius: 10px;
-      padding: 1.5rem;
-      box-shadow: 0 3px 10px rgba(30, 50, 90, 0.08);
-      transition: 0.2s ease;
-    }
-
-    #latin-line:hover
-    {
-      box-shadow: 0 5px 15px rgba(30, 50, 90, 0.15);
-      transform: translateY(-1px);
-    }
-
-    label
-    {
-      font-size: 1.1rem;
-      color: #364872;
-    }
-
-    #author-select
-    {
-      background: #eef2fb;
-      border: 1.5px solid #aab8d6;
-      border-radius: 6px;
-      padding: 0.4rem 0.8rem;
-      font-size: 1rem;
-      font-family: 'Garamond', serif;
-      color: #1e2a44;
-      margin-left: 0.4rem;
-      transition: 0.2s;
-    }
-
-    #author-select:hover
-    {
-      border-color: #7b8fc4;
-    }
-
-    button
-    {
-      margin-top: 1.5rem;
-      background: #394b78;
-      border: none;
-      color: #f8f9fc;
-      font-size: 1.1rem;
-      font-family: 'Garamond', serif;
-      padding: 0.6rem 1.4rem;
-      border-radius: 8px;
-      cursor: pointer;
-      transition: all 0.25s ease;
-    }
-
-    button:hover
-    {
-      background: #5167a0;
-      transform: translateY(-2px);
-      box-shadow: 0 4px 10px rgba(60, 80, 120, 0.3);
-    }
-  </style>
+  <script defer src="random.js"></script>
 </head>
-
 <body>
-  <h1>Versus Latini</h1>
+  <div class="container">
+    <h1>Versus Latini</h1>
+    <p class="subtitle">clicca ad sortem versum latinum!</p>
 
-  <div>
-    <label for="author-select"><strong>Auctor:</strong></label>
-    <select id="author-select">
-      <option value="virgil">Virgil</option>
-      
-    </select>
+    <div class="radio-group">
+      <label><input type="radio" name="work" value="virgil.txt" checked> Aeneid (Virgil)</label>
+      <!--<label><input type="radio" name="work" value="Ovid.txt"> Metamorphoses (Ovid)</label>
+      <label><input type="radio" name="work" value="Cicero.txt"> De Amicitia (Cicero)</label>!-->
+    </div>
+
+    <button id="new-line">da mihi versum!!</button>
+    <p id="latin-line">exspecta...</p>
   </div>
-
-  <div id="latin-line">Clicca ad sortem versum Latinum!</div>
-
-  <button id="new-line">Novus Versus</button>
-
-  <script src="virgil.txt"></script>
-  <script src="random.js"></script>
 </body>
 </html>
