@@ -1,70 +1,85 @@
 body
-{
-  font-family: 'Times New Roman', serif;
-  background-color: #f8faff;
-  color: #001f3f;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-  margin: 0;
-}
+    {
+      background: #f6f8fb;
+      font-family: 'Garamond', 'Times New Roman', serif;
+      color: #1e2a44;
+      text-align: center;
+      padding: 4rem 1rem;
+    }
 
-.container
-{
-  background-color: #eaf0ff;
-  border: 1.5px solid #c8d4ee;
-  border-radius: 12px;
-  padding: 30px;
-  max-width: 400px;
-  text-align: center;
-  box-shadow: 0 4px 10px rgba(0, 32, 96, 0.1);
-}
+    h1
+    {
+      font-size: 2.5rem;
+      letter-spacing: 1px;
+      color: #243154;
+      border-bottom: 2px solid #aab8d6;
+      display: inline-block;
+      padding-bottom: 0.4rem;
+      margin-bottom: 2rem;
+    }
 
-h1
-{
-  color: #0d2451;
-  margin-bottom: 0.3em;
-}
+    #latin-line
+    {
+      font-size: 1.6rem;
+      margin: 2rem auto;
+      max-width: 700px;
+      line-height: 1.6;
+      background: #ffffff;
+      border: 2px solid #b8c4e0;
+      border-radius: 10px;
+      padding: 1.5rem;
+      box-shadow: 0 3px 10px rgba(30, 50, 90, 0.08);
+      transition: 0.2s ease;
+    }
 
-.subtitle
-{
-  color: #3a4e7a;
-  font-style: italic;
-  margin-bottom: 1.5em;
-}
+    #latin-line:hover
+    {
+      box-shadow: 0 5px 15px rgba(30, 50, 90, 0.15);
+      transform: translateY(-1px);
+    }
 
-.radio-group
-{
-  text-align: left;
-  margin-bottom: 1.5em;
-}
+    label
+    {
+      font-size: 1.1rem;
+      color: #364872;
+    }
 
-.radio-group label
-{
-  display: block;
-  margin: 0.3em 0;
-  font-size: 1.05em;
-}
+    #author-select
+    {
+      background: #eef2fb;
+      border: 1.5px solid #aab8d6;
+      border-radius: 6px;
+      padding: 0.4rem 0.8rem;
+      font-size: 1rem;
+      font-family: 'Garamond', serif;
+      color: #1e2a44;
+      margin-left: 0.4rem;
+      transition: 0.2s;
+    }
 
-button
-{
-  background-color: #1b3a77;
-  color: white;
-  border: none;
-  border-radius: 8px;
-  padding: 10px 20px;
-  font-size: 1.1em;
-  cursor: pointer;
-}
+    #author-select:hover
+    {
+      border-color: #7b8fc4;
+    }
 
-button:hover {
-  background-color: #274b9b;
-}
+    button
+    {
+      margin-top: 1.5rem;
+      background: #394b78;
+      border: none;
+      color: #f8f9fc;
+      font-size: 1.1rem;
+      font-family: 'Garamond', serif;
+      padding: 0.6rem 1.4rem;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: all 0.25s ease;
+    }
 
-#latin-line {
-  margin-top: 1.5em;
-  font-style: italic;
-  font-size: 1.2em;
-  min-height: 2em;
-}
+    button:hover
+    {
+      background: #5167a0;
+      transform: translateY(-2px);
+      box-shadow: 0 4px 10px rgba(60, 80, 120, 0.3);
+    }
+  
